@@ -1,0 +1,92 @@
+{
+  "name": "english-card-learning",
+  "version": "1.0.0",
+  "description": "A card-based English learning platform for middle and high school students",
+  "type": "module",
+  "private": true,
+  "author": {
+    "name": "Development Team",
+    "email": "dev@example.com"
+  },
+  "keywords": [
+    "english",
+    "learning",
+    "education",
+    "cards",
+    "tts",
+    "react",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/english-card-learning.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/english-card-learning/issues"
+  },
+  "homepage": "https://your-username.github.io/english-card-learning",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:prod": "NODE_ENV=production npm run build",
+    "build:analyze": "ANALYZE=true npm run build && node scripts/bundle-analyzer.js",
+    "build:preview": "npm run build && npm run preview",
+    "bundle:analyze": "node scripts/bundle-analyzer.js",
+    "bundle:size": "npm run build:prod && npm run bundle:analyze",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "clean": "rm -rf dist",
+    "deploy:check": "npm run build:prod && npm run bundle:analyze && echo 'Build successful - ready for deployment'",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "framer-motion": "^12.23.12",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^4.1.0",
+    "@eslint/js": "^9.30.1",
+    "@storybook/addon-a11y": "^9.1.0",
+    "@storybook/addon-docs": "^9.1.0",
+    "@storybook/addon-onboarding": "^9.1.0",
+    "@storybook/addon-vitest": "^9.1.0",
+    "@storybook/react-vite": "^9.1.0",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^24.1.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.6.0",
+    "@vitest/browser": "3.2.4",
+    "@vitest/coverage-v8": "3.2.4",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.30.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "eslint-plugin-storybook": "^9.1.0",
+    "globals": "^16.3.0",
+    "jest-axe": "^10.0.0",
+    "jsdom": "^26.1.0",
+    "playwright": "^1.54.2",
+    "postcss": "^8.5.6",
+    "rollup-plugin-visualizer": "^6.0.3",
+    "storybook": "^9.1.0",
+    "tailwindcss": "^4.1.11",
+    "terser": "^5.43.1",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.35.1",
+    "vite": "^7.0.4",
+    "vite-plugin-pwa": "^1.0.2",
+    "vitest": "^3.2.4",
+    "workbox-window": "^7.3.0"
+  }
+}

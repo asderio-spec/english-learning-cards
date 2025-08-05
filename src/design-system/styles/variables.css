@@ -1,0 +1,586 @@
+/**
+ * Linear 디자인 시스템 - CSS 변수
+ * 테마별 색상 및 동적 스타일링을 위한 CSS 변수 정의
+ */
+
+:root {
+  /* 색상 토큰 */
+  --color-primary-50: #F0F2FF;
+  --color-primary-100: #E0E4FF;
+  --color-primary-200: #C7CCFF;
+  --color-primary-300: #A5ACFF;
+  --color-primary-400: #8B93FF;
+  --color-primary-500: #5E6AD2;
+  --color-primary-600: #4C5BC7;
+  --color-primary-700: #3D4AB8;
+  --color-primary-800: #2F3A9E;
+  --color-primary-900: #1F2670;
+  
+  --color-secondary-50: #E6FAFE;
+  --color-secondary-100: #CCF5FD;
+  --color-secondary-200: #99EBFB;
+  --color-secondary-300: #66E1F9;
+  --color-secondary-400: #33D7F7;
+  --color-secondary-500: #00D2FF;
+  --color-secondary-600: #00B8E6;
+  --color-secondary-700: #009ECC;
+  --color-secondary-800: #0084B3;
+  --color-secondary-900: #006A99;
+  
+  --color-success-50: #E6FDF5;
+  --color-success-100: #CCFBEB;
+  --color-success-200: #99F7D7;
+  --color-success-300: #66F3C3;
+  --color-success-400: #33EFAF;
+  --color-success-500: #00C896;
+  --color-success-600: #00B087;
+  --color-success-700: #009878;
+  --color-success-800: #008069;
+  --color-success-900: #00685A;
+  
+  --color-warning-50: #FFF4E6;
+  --color-warning-100: #FFE9CC;
+  --color-warning-200: #FFD399;
+  --color-warning-300: #FFBD66;
+  --color-warning-400: #FFA733;
+  --color-warning-500: #FF6B35;
+  --color-warning-600: #E6602F;
+  --color-warning-700: #CC5529;
+  --color-warning-800: #B34A23;
+  --color-warning-900: #993F1D;
+  
+  --color-error-50: #FFE6E6;
+  --color-error-100: #FFCCCC;
+  --color-error-200: #FF9999;
+  --color-error-300: #FF6666;
+  --color-error-400: #FF3333;
+  --color-error-500: #FF5C5C;
+  --color-error-600: #E65252;
+  --color-error-700: #CC4848;
+  --color-error-800: #B33E3E;
+  --color-error-900: #993434;
+  
+  --color-neutral-50: #F6F8FA;
+  --color-neutral-100: #E1E4E8;
+  --color-neutral-200: #D1D5DA;
+  --color-neutral-300: #959DA5;
+  --color-neutral-400: #6A737D;
+  --color-neutral-500: #586069;
+  --color-neutral-600: #444D56;
+  --color-neutral-700: #2F363D;
+  --color-neutral-800: #24292E;
+  --color-neutral-900: #1B1F23;
+  
+  /* 간격 토큰 (4px 기준) */
+  --spacing-0: 0px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+  --spacing-32: 128px;
+  
+  /* 의미적 간격 별칭 */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 80px;
+  --spacing-5xl: 96px;
+  
+  /* 컴포넌트별 간격 */
+  --spacing-button-sm-x: 12px;
+  --spacing-button-sm-y: 8px;
+  --spacing-button-md-x: 16px;
+  --spacing-button-md-y: 12px;
+  --spacing-button-lg-x: 24px;
+  --spacing-button-lg-y: 16px;
+  
+  --spacing-card-sm: 16px;
+  --spacing-card-md: 24px;
+  --spacing-card-lg: 32px;
+  
+  --spacing-section-sm: 32px;
+  --spacing-section-md: 48px;
+  --spacing-section-lg: 64px;
+  
+  /* 그리드 시스템 */
+  --grid-columns: 12;
+  --grid-gutter-mobile: 16px;
+  --grid-gutter-tablet: 24px;
+  --grid-gutter-desktop: 32px;
+  --grid-margin-mobile: 16px;
+  --grid-margin-tablet: 24px;
+  --grid-margin-desktop: 32px;
+  
+  /* 타이포그래피 토큰 */
+  --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-mono: 'SF Mono', Monaco, Inconsolata, 'Roboto Mono', 'source-code-pro', Menlo, Consolas, monospace;
+  
+  --font-size-display: 32px;
+  --line-height-display: 40px;
+  --font-weight-display: 700;
+  --letter-spacing-display: -0.02em;
+  
+  --font-size-h1: 28px;
+  --line-height-h1: 36px;
+  --font-weight-h1: 700;
+  --letter-spacing-h1: -0.02em;
+  
+  --font-size-h2: 24px;
+  --line-height-h2: 32px;
+  --font-weight-h2: 600;
+  --letter-spacing-h2: -0.01em;
+  
+  --font-size-h3: 20px;
+  --line-height-h3: 28px;
+  --font-weight-h3: 600;
+  --letter-spacing-h3: -0.01em;
+  
+  --font-size-h4: 18px;
+  --line-height-h4: 26px;
+  --font-weight-h4: 600;
+  --letter-spacing-h4: 0em;
+  
+  --font-size-body-lg: 18px;
+  --line-height-body-lg: 28px;
+  --font-weight-body-lg: 400;
+  --letter-spacing-body-lg: 0em;
+  
+  --font-size-body-md: 16px;
+  --line-height-body-md: 24px;
+  --font-weight-body-md: 400;
+  --letter-spacing-body-md: 0em;
+  
+  --font-size-body-sm: 14px;
+  --line-height-body-sm: 20px;
+  --font-weight-body-sm: 400;
+  --letter-spacing-body-sm: 0em;
+  
+  --font-size-caption-lg: 14px;
+  --line-height-caption-lg: 20px;
+  --font-weight-caption-lg: 500;
+  --letter-spacing-caption-lg: 0.01em;
+  
+  --font-size-caption-md: 12px;
+  --line-height-caption-md: 16px;
+  --font-weight-caption-md: 500;
+  --letter-spacing-caption-md: 0.01em;
+  
+  --font-size-caption-sm: 11px;
+  --line-height-caption-sm: 14px;
+  --font-weight-caption-sm: 500;
+  --letter-spacing-caption-sm: 0.02em;
+  
+  /* 폰트 가중치 토큰 */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  
+  /* 반응형 타이포그래피 토큰 (모바일 우선) */
+  --font-size-display-mobile: 28px;
+  --line-height-display-mobile: 36px;
+  --font-size-h1-mobile: 24px;
+  --line-height-h1-mobile: 32px;
+  --font-size-h2-mobile: 20px;
+  --line-height-h2-mobile: 28px;
+  
+  /* 애니메이션 토큰 */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 350ms;
+  --duration-slower: 500ms;
+  
+  --easing-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --easing-snappy: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --easing-gentle: cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* 그림자 토큰 */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* 둥근 모서리 토큰 */
+  --radius-none: 0px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
+  --radius-full: 9999px;
+  
+  /* Z-index 토큰 */
+  --z-hide: -1;
+  --z-base: 0;
+  --z-docked: 10;
+  --z-dropdown: 1000;
+  --z-sticky: 1100;
+  --z-banner: 1200;
+  --z-overlay: 1300;
+  --z-modal: 1400;
+  --z-popover: 1500;
+  --z-skip-link: 1600;
+  --z-toast: 1700;
+  --z-tooltip: 1800;
+  
+  /* 브레이크포인트 토큰 */
+  --breakpoint-mobile: 320px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-wide: 1440px;
+  
+  /* 컨테이너 최대 너비 토큰 */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+  
+  /* 최소 크기 토큰 */
+  --min-size-touch-target: 44px;
+  --min-size-button: 32px;
+  --min-size-input: 40px;
+  --min-size-card: 120px;
+  
+  /* 애스펙트 비율 토큰 */
+  --aspect-ratio-square: 1 / 1;
+  --aspect-ratio-video: 16 / 9;
+  --aspect-ratio-photo: 4 / 3;
+  --aspect-ratio-portrait: 3 / 4;
+  --aspect-ratio-golden: 1.618 / 1;
+}
+
+/* 라이트 테마 (기본) - 밝은 배경과 어두운 텍스트 */
+:root,
+[data-theme="light"] {
+  /* 배경 색상 */
+  --bg-primary: var(--color-neutral-50);
+  --bg-secondary: var(--color-neutral-100);
+  --bg-elevated: #ffffff;
+  
+  /* 표면 색상 */
+  --surface-primary: #ffffff;
+  --surface-secondary: var(--color-neutral-50);
+  --surface-tertiary: var(--color-neutral-100);
+  
+  /* 텍스트 색상 - 어두운 텍스트 (라이트 모드) */
+  --text-primary: var(--color-neutral-800);
+  --text-secondary: var(--color-neutral-500);
+  --text-tertiary: var(--color-neutral-400);
+  --text-disabled: var(--color-neutral-300);
+  --text-inverse: #ffffff;
+  
+  /* 경계선 색상 */
+  --border-primary: var(--color-neutral-200);
+  --border-secondary: var(--color-neutral-100);
+  --border-focus: var(--color-primary-500);
+  
+  /* 그림자 색상 */
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  
+  /* 의미적 색상 - 라이트 모드 */
+  --semantic-primary-bg: var(--color-primary-50);
+  --semantic-primary-border: var(--color-primary-200);
+  --semantic-primary-text: var(--color-primary-700);
+  --semantic-primary-text-strong: var(--color-primary-800);
+  
+  --semantic-secondary-bg: var(--color-secondary-50);
+  --semantic-secondary-border: var(--color-secondary-200);
+  --semantic-secondary-text: var(--color-secondary-700);
+  --semantic-secondary-text-strong: var(--color-secondary-800);
+  
+  --semantic-success-bg: var(--color-success-50);
+  --semantic-success-border: var(--color-success-200);
+  --semantic-success-text: var(--color-success-700);
+  --semantic-success-text-strong: var(--color-success-800);
+  
+  --semantic-warning-bg: var(--color-warning-50);
+  --semantic-warning-border: var(--color-warning-200);
+  --semantic-warning-text: var(--color-warning-700);
+  --semantic-warning-text-strong: var(--color-warning-800);
+  
+  --semantic-error-bg: var(--color-error-50);
+  --semantic-error-border: var(--color-error-200);
+  --semantic-error-text: var(--color-error-700);
+  --semantic-error-text-strong: var(--color-error-800);
+  
+  /* 인터랙션 상태 색상 */
+  --interactive-hover: rgba(0, 0, 0, 0.04);
+  --interactive-pressed: rgba(0, 0, 0, 0.08);
+  --interactive-selected: var(--color-primary-50);
+  --interactive-focus: var(--color-primary-100);
+}
+
+/* 다크 테마 - 어두운 배경과 밝은 텍스트 */
+[data-theme="dark"] {
+  /* 배경 색상 */
+  --bg-primary: var(--color-neutral-900);
+  --bg-secondary: var(--color-neutral-800);
+  --bg-elevated: var(--color-neutral-700);
+  
+  /* 표면 색상 */
+  --surface-primary: var(--color-neutral-800);
+  --surface-secondary: var(--color-neutral-700);
+  --surface-tertiary: var(--color-neutral-600);
+  
+  /* 텍스트 색상 - 밝은 텍스트 (다크 모드) */
+  --text-primary: var(--color-neutral-50);
+  --text-secondary: var(--color-neutral-200);
+  --text-tertiary: var(--color-neutral-300);
+  --text-disabled: var(--color-neutral-400);
+  --text-inverse: var(--color-neutral-800);
+  
+  /* 경계선 색상 */
+  --border-primary: var(--color-neutral-600);
+  --border-secondary: var(--color-neutral-700);
+  --border-focus: var(--color-primary-400);
+  
+  /* 그림자 색상 */
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  
+  /* 다크 테마용 그림자 재정의 */
+  --shadow-sm: 0 1px 2px 0 var(--shadow-color);
+  --shadow-md: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px var(--shadow-color), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  
+  /* 의미적 색상 - 다크 모드 */
+  --semantic-primary-bg: var(--color-primary-900);
+  --semantic-primary-border: var(--color-primary-700);
+  --semantic-primary-text: var(--color-primary-300);
+  --semantic-primary-text-strong: var(--color-primary-200);
+  
+  --semantic-secondary-bg: var(--color-secondary-900);
+  --semantic-secondary-border: var(--color-secondary-700);
+  --semantic-secondary-text: var(--color-secondary-300);
+  --semantic-secondary-text-strong: var(--color-secondary-200);
+  
+  --semantic-success-bg: var(--color-success-900);
+  --semantic-success-border: var(--color-success-700);
+  --semantic-success-text: var(--color-success-300);
+  --semantic-success-text-strong: var(--color-success-200);
+  
+  --semantic-warning-bg: var(--color-warning-900);
+  --semantic-warning-border: var(--color-warning-700);
+  --semantic-warning-text: var(--color-warning-300);
+  --semantic-warning-text-strong: var(--color-warning-200);
+  
+  --semantic-error-bg: var(--color-error-900);
+  --semantic-error-border: var(--color-error-700);
+  --semantic-error-text: var(--color-error-300);
+  --semantic-error-text-strong: var(--color-error-200);
+  
+  /* 인터랙션 상태 색상 */
+  --interactive-hover: rgba(255, 255, 255, 0.08);
+  --interactive-pressed: rgba(255, 255, 255, 0.12);
+  --interactive-selected: var(--color-primary-900);
+  --interactive-focus: var(--color-primary-800);
+}
+
+/* 시스템 테마 감지 - 사용자가 명시적으로 테마를 설정하지 않은 경우 */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    /* 배경 색상 */
+    --bg-primary: var(--color-neutral-900);
+    --bg-secondary: var(--color-neutral-800);
+    --bg-elevated: var(--color-neutral-700);
+    
+    /* 표면 색상 */
+    --surface-primary: var(--color-neutral-800);
+    --surface-secondary: var(--color-neutral-700);
+    --surface-tertiary: var(--color-neutral-600);
+    
+    /* 텍스트 색상 - 밝은 텍스트 (시스템 다크 모드) */
+    --text-primary: var(--color-neutral-50);
+    --text-secondary: var(--color-neutral-200);
+    --text-tertiary: var(--color-neutral-300);
+    --text-disabled: var(--color-neutral-400);
+    --text-inverse: var(--color-neutral-800);
+    
+    /* 경계선 색상 */
+    --border-primary: var(--color-neutral-600);
+    --border-secondary: var(--color-neutral-700);
+    --border-focus: var(--color-primary-400);
+    
+    /* 그림자 색상 */
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --shadow-sm: 0 1px 2px 0 var(--shadow-color);
+    --shadow-md: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 20px 25px -5px var(--shadow-color), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+    
+    /* 의미적 색상 - 시스템 다크 모드 */
+    --semantic-primary-bg: var(--color-primary-900);
+    --semantic-primary-border: var(--color-primary-700);
+    --semantic-primary-text: var(--color-primary-300);
+    --semantic-primary-text-strong: var(--color-primary-200);
+    
+    --semantic-secondary-bg: var(--color-secondary-900);
+    --semantic-secondary-border: var(--color-secondary-700);
+    --semantic-secondary-text: var(--color-secondary-300);
+    --semantic-secondary-text-strong: var(--color-secondary-200);
+    
+    --semantic-success-bg: var(--color-success-900);
+    --semantic-success-border: var(--color-success-700);
+    --semantic-success-text: var(--color-success-300);
+    --semantic-success-text-strong: var(--color-success-200);
+    
+    --semantic-warning-bg: var(--color-warning-900);
+    --semantic-warning-border: var(--color-warning-700);
+    --semantic-warning-text: var(--color-warning-300);
+    --semantic-warning-text-strong: var(--color-warning-200);
+    
+    --semantic-error-bg: var(--color-error-900);
+    --semantic-error-border: var(--color-error-700);
+    --semantic-error-text: var(--color-error-300);
+    --semantic-error-text-strong: var(--color-error-200);
+    
+    /* 인터랙션 상태 색상 */
+    --interactive-hover: rgba(255, 255, 255, 0.08);
+    --interactive-pressed: rgba(255, 255, 255, 0.12);
+    --interactive-selected: var(--color-primary-900);
+    --interactive-focus: var(--color-primary-800);
+  }
+}
+
+/* 테마 전환 애니메이션 */
+:root {
+  color-scheme: light dark;
+}
+
+:root,
+:root * {
+  transition: background-color var(--duration-normal) var(--easing-smooth),
+              color var(--duration-normal) var(--easing-smooth),
+              border-color var(--duration-normal) var(--easing-smooth),
+              box-shadow var(--duration-normal) var(--easing-smooth);
+}
+
+/* 테마 전환 시 애니메이션 비활성화 (성능 최적화) */
+@media (prefers-reduced-motion: reduce) {
+  :root,
+  :root * {
+    transition: none !important;
+  }
+}
+
+/* 고대비 모드에서 테마별 색상 강화 */
+@media (prefers-contrast: high) {
+  [data-theme="light"] {
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --border-primary: #000000;
+    --border-secondary: #333333;
+  }
+  
+  [data-theme="dark"] {
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --border-primary: #ffffff;
+    --border-secondary: #cccccc;
+  }
+}
+
+/* 반응형 전환 애니메이션 */
+.responsive-transition {
+  transition: 
+    grid-template-columns var(--duration-normal) var(--easing-smooth),
+    gap var(--duration-normal) var(--easing-smooth),
+    padding var(--duration-normal) var(--easing-smooth),
+    max-width var(--duration-normal) var(--easing-smooth),
+    flex-direction var(--duration-normal) var(--easing-smooth);
+}
+
+/* 터치 디바이스 최적화 */
+@media (hover: none) and (pointer: coarse) {
+  .touch-optimized {
+    min-height: var(--min-size-touch-target);
+    min-width: var(--min-size-touch-target);
+    cursor: default;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+  }
+}
+
+/* 반응형 컨테이너 패딩 */
+@media (max-width: 767px) {
+  .container {
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: var(--spacing-xl);
+    padding-right: var(--spacing-xl);
+  }
+}
+
+/* 반응형 그리드 */
+@media (max-width: 767px) {
+  .grid {
+    --grid-columns: var(--grid-columns-mobile, 1);
+    --grid-gap: var(--grid-gap-mobile, var(--spacing-sm));
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .grid {
+    --grid-columns: var(--grid-columns-tablet, 2);
+    --grid-gap: var(--grid-gap-tablet, var(--spacing-md));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    --grid-columns: var(--grid-columns-desktop, 3);
+    --grid-gap: var(--grid-gap-desktop, var(--spacing-lg));
+  }
+}
+
+/* 접근성: 애니메이션 감소 설정 */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0.01ms;
+    --duration-normal: 0.01ms;
+    --duration-slow: 0.01ms;
+    --duration-slower: 0.01ms;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .responsive-transition {
+    transition: none !important;
+  }
+}

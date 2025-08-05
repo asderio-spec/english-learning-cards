@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오프라인 - English Card Learning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon svg {
+            width: 40px;
+            height: 40px;
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        .retry-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .retry-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .features {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .features h2 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            margin-right: 12px;
+            font-weight: bold;
+            color: #4ade80;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px;
+            }
+            
+            p {
+                font-size: 14px;
+            }
+            
+            .retry-button {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">
+            <svg viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-12.728 12.728m0 0L5.636 18.364m12.728-12.728L18.364 18.364M8.11 8.11l7.78 7.78" />
+            </svg>
+        </div>
+        
+        <h1>인터넷 연결이 끊어졌습니다</h1>
+        <p>
+            현재 오프라인 상태입니다. 인터넷 연결을 확인하고 다시 시도해주세요.
+            <br><br>
+            일부 기능은 오프라인에서도 사용할 수 있습니다.
+        </p>
+        
+        <button class="retry-button" onclick="window.location.reload()">
+            다시 시도
+        </button>
+        
+        <div class="features">
+            <h2>오프라인에서 사용 가능한 기능</h2>
+            <ul class="feature-list">
+                <li>이전에 학습한 카드 복습</li>
+                <li>저장된 진도 확인</li>
+                <li>학습 기록 조회</li>
+                <li>설정 변경</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // 온라인 상태 복구 감지
+        window.addEventListener('online', function() {
+            window.location.reload();
+        });
+
+        // 페이지 가시성 변경 시 연결 상태 확인
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden && navigator.onLine) {
+                window.location.reload();
+            }
+        });
+
+        // 주기적으로 연결 상태 확인 (30초마다)
+        setInterval(function() {
+            if (navigator.onLine) {
+                fetch('/', { method: 'HEAD', cache: 'no-cache' })
+                    .then(function() {
+                        window.location.reload();
+                    })
+                    .catch(function() {
+                        // 여전히 오프라인
+                    });
+            }
+        }, 30000);
+    </script>
+</body>
+</html>

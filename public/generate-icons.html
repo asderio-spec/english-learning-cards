@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PWA 아이콘 생성기</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .icon-preview { margin: 20px 0; }
+        .icon-preview img { border: 1px solid #ddd; margin: 10px; }
+        .instructions { background: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>PWA 아이콘 생성</h1>
+    
+    <div class="instructions">
+        <h3>아이콘 생성 방법:</h3>
+        <ol>
+            <li>아래 SVG 이미지들을 우클릭하여 저장</li>
+            <li>온라인 SVG to PNG 변환기 사용 (예: convertio.co, cloudconvert.com)</li>
+            <li>각각 필요한 크기로 변환:
+                <ul>
+                    <li>pwa-192x192.png (192x192)</li>
+                    <li>pwa-512x512.png (512x512)</li>
+                    <li>apple-touch-icon.png (180x180)</li>
+                    <li>favicon-32x32.png (32x32)</li>
+                    <li>favicon-16x16.png (16x16)</li>
+                </ul>
+            </li>
+            <li>생성된 PNG 파일들을 public 폴더에 저장</li>
+        </ol>
+    </div>
+    
+    <div class="icon-preview">
+        <h3>메인 아이콘 (512x512, 192x192용)</h3>
+        <img src="data:image/svg+xml;base64,Cjxzdmcgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkMSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM2MzY2ZjE7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzhiNWNmNjtzdG9wLW9wYWNpdHk6MSIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIAogIDwhLS0g67Cw6rK9IOybkCAtLT4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjI0MCIgZmlsbD0idXJsKCNncmFkMSkiIC8+CiAgCiAgPCEtLSDssYUg7JWE7J207L2YIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI1NiwyNTYpIj4KICAgIDwhLS0g7LGFIO2RnOyngCAtLT4KICAgIDxyZWN0IHg9Ii04MCIgeT0iLTEwMCIgd2lkdGg9IjE2MCIgaGVpZ2h0PSIyMDAiIHJ4PSI4IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45NSIvPgogICAgCiAgICA8IS0tIOyxhSDtjpjsnbTsp4AgLS0+CiAgICA8cmVjdCB4PSItNzUiIHk9Ii05NSIgd2lkdGg9IjE1MCIgaGVpZ2h0PSIxOTAiIHJ4PSI0IiBmaWxsPSIjZjhmYWZjIi8+CiAgICAKICAgIDwhLS0g7YWN7Iqk7Yq4IOudvOyduOuTpCAtLT4KICAgIDxyZWN0IHg9Ii02MCIgeT0iLTcwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQiIHJ4PSIyIiBmaWxsPSIjNjM2NmYxIiBvcGFjaXR5PSIwLjgiLz4KICAgIDxyZWN0IHg9Ii02MCIgeT0iLTU1IiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9IiM4YjVjZjYiIG9wYWNpdHk9IjAuNiIvPgogICAgPHJlY3QgeD0iLTYwIiB5PSItNDIiIHdpZHRoPSIxMTAiIGhlaWdodD0iMyIgcng9IjEuNSIgZmlsbD0iIzhiNWNmNiIgb3BhY2l0eT0iMC42Ii8+CiAgICA8cmVjdCB4PSItNjAiIHk9Ii0yOSIgd2lkdGg9IjkwIiBoZWlnaHQ9IjMiIHJ4PSIxLjUiIGZpbGw9IiM4YjVjZjYiIG9wYWNpdHk9IjAuNiIvPgogICAgCiAgICA8IS0tIOyYgeyWtCDri6jslrQg7JiI7IucIC0tPgogICAgPHRleHQgeD0iMCIgeT0iMjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiM2MzY2ZjEiPkFCQzwvdGV4dD4KICAgIDx0ZXh0IHg9IjAiIHk9IjQ1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiM4YjVjZjYiPkVuZ2xpc2g8L3RleHQ+CiAgICAKICAgIDwhLS0g67aB66eI7YGsIC0tPgogICAgPHJlY3QgeD0iNjAiIHk9Ii0xMDAiIHdpZHRoPSIxMiIgaGVpZ2h0PSI0MCIgZmlsbD0iI2VmNDQ0NCIvPgogICAgPHBvbHlnb24gcG9pbnRzPSI2NiwtNjAgNjAsLTcwIDcyLC03MCIgZmlsbD0iI2VmNDQ0NCIvPgogIDwvZz4KPC9zdmc+Cg==" width="128" height="128" alt="Main Icon">
+    </div>
+    
+    <div class="icon-preview">
+        <h3>Favicon (32x32, 16x16용)</h3>
+        <img src="data:image/svg+xml;base64,Cjxzdmcgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiB2aWV3Qm94PSIwIDAgMzIgMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTUiIGZpbGw9IiM2MzY2ZjEiLz4KICA8cmVjdCB4PSI4IiB5PSI2IiB3aWR0aD0iMTYiIGhlaWdodD0iMjAiIHJ4PSIxIiBmaWxsPSJ3aGl0ZSIvPgogIDxyZWN0IHg9IjkiIHk9IjciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxOCIgcng9IjEiIGZpbGw9IiNmOGZhZmMiLz4KICA8cmVjdCB4PSIxMCIgeT0iOSIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEiIGZpbGw9IiM2MzY2ZjEiLz4KICA8cmVjdCB4PSIxMCIgeT0iMTIiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxIiBmaWxsPSIjOGI1Y2Y2Ii8+CiAgPHJlY3QgeD0iMTAiIHk9IjE1IiB3aWR0aD0iMTEiIGhlaWdodD0iMSIgZmlsbD0iIzhiNWNmNiIvPgogIDx0ZXh0IHg9IjE2IiB5PSIyMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjYiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjNjM2NmYxIj5BPC90ZXh0Pgo8L3N2Zz4K" width="64" height="64" alt="Favicon">
+    </div>
+    
+    <div class="icon-preview">
+        <h3>마스크 가능한 아이콘 (512x512 maskable용)</h3>
+        <img src="data:image/svg+xml;base64,Cjxzdmcgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkMSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM2MzY2ZjE7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzhiNWNmNjtzdG9wLW9wYWNpdHk6MSIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIAogIDwhLS0g7KCE7LK0IOuwsOqyvSAo66eI7Iqk7YGsIOyViOyghCDsmIHsl60pIC0tPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiBmaWxsPSJ1cmwoI2dyYWQxKSIvPgogIAogIDwhLS0g7KSR7JWZIOyVhOydtOy9mCAo7JWI7KCEIOyYgeyXrSDrgrQpIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI1NiwyNTYpIHNjYWxlKDAuNikiPgogICAgPCEtLSDssYUg7ZGc7KeAIC0tPgogICAgPHJlY3QgeD0iLTgwIiB5PSItMTAwIiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjIwMCIgcng9IjgiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjk1Ii8+CiAgICAKICAgIDwhLS0g7LGFIO2OmOydtOyngCAtLT4KICAgIDxyZWN0IHg9Ii03NSIgeT0iLTk1IiB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE5MCIgcng9IjQiIGZpbGw9IiNmOGZhZmMiLz4KICAgIAogICAgPCEtLSDthY3siqTtirgg65287J2465OkIC0tPgogICAgPHJlY3QgeD0iLTYwIiB5PSItNzAiIHdpZHRoPSIxMjAiIGhlaWdodD0iNCIgcng9IjIiIGZpbGw9IiM2MzY2ZjEiIG9wYWNpdHk9IjAuOCIvPgogICAgPHJlY3QgeD0iLTYwIiB5PSItNTUiIHdpZHRoPSIxMDAiIGhlaWdodD0iMyIgcng9IjEuNSIgZmlsbD0iIzhiNWNmNiIgb3BhY2l0eT0iMC42Ii8+CiAgICA8cmVjdCB4PSItNjAiIHk9Ii00MiIgd2lkdGg9IjExMCIgaGVpZ2h0PSIzIiByeD0iMS41IiBmaWxsPSIjOGI1Y2Y2IiBvcGFjaXR5PSIwLjYiLz4KICAgIDxyZWN0IHg9Ii02MCIgeT0iLTI5IiB3aWR0aD0iOTAiIGhlaWdodD0iMyIgcng9IjEuNSIgZmlsbD0iIzhiNWNmNiIgb3BhY2l0eT0iMC42Ii8+CiAgICAKICAgIDwhLS0g7JiB7Ja0IOuLqOyWtCDsmIjsi5wgLS0+CiAgICA8dGV4dCB4PSIwIiB5PSIyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjMyIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzYzNjZmMSI+QUJDPC90ZXh0PgogICAgPHRleHQgeD0iMCIgeT0iNTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgZmlsbD0iIzhiNWNmNiI+RW5nbGlzaDwvdGV4dD4KICAgIAogICAgPCEtLSDrtoHrp4jtgawgLS0+CiAgICA8cmVjdCB4PSI2MCIgeT0iLTEwMCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjQwIiBmaWxsPSIjZWY0NDQ0Ii8+CiAgICA8cG9seWdvbiBwb2ludHM9IjY2LC02MCA2MCwtNzAgNzIsLTcwIiBmaWxsPSIjZWY0NDQ0Ii8+CiAgPC9nPgo8L3N2Zz4K" width="128" height="128" alt="Maskable Icon">
+    </div>
+    
+    <div class="instructions">
+        <h3>자동 생성 (Node.js 환경):</h3>
+        <p>더 정확한 PNG 생성을 위해 다음 패키지 설치 후 사용:</p>
+        <pre>npm install sharp</pre>
+        <p>그 후 이 스크립트를 수정하여 sharp를 사용한 자동 변환 구현</p>
+    </div>
+</body>
+</html>
+  
