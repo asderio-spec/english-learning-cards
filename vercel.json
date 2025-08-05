@@ -2,6 +2,7 @@
   "buildCommand": "npm run build:prod",
   "outputDirectory": "dist",
   "framework": "vite",
+  "public": true,
   "rewrites": [
     {
       "source": "/(.*)",
