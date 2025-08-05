@@ -1,4 +1,4 @@
-// TTS Service implementation using Web Speech API
+// TTS Service implementation using Web Speech API with mobile optimization
 
 import type { TTSService } from '../types';
 import { TTSError, TTSErrorCode } from '../types';
@@ -6,6 +6,8 @@ import { TTSError, TTSErrorCode } from '../types';
 export class TTSServiceImpl implements TTSService {
   private currentUtterance: SpeechSynthesisUtterance | null = null;
   private isPlaying = false;
+  private isInitialized = false;
+  private audioContext: AudioContext | null = null;
 
   /**
    * Clean text for TTS by removing grade and sentence number information
@@ -49,7 +51,32 @@ export class TTSServiceImpl implements TTSService {
   }
 
   /**
-   * Speaks the given text in the specified language
+   * Initialize audio context for mobile compatibility
+   */
+  private async initializeAudioContext(): Promise<void> {
+    if (this.isInitialized) return;
+
+    try {
+      // Create audio context for mobile compatibility
+      if (typeof window !== 'undefined' && 'AudioContext' in window) {
+        this.audioContext = new AudioContext();
+        
+        // Resume audio context if it's suspended (common on mobile)
+        if (this.audioContext.state === 'suspended') {
+          await this.audioContext.resume();
+        }
+      }
+      
+      this.isInitialized = true;
+    } catch (error) {
+      console.warn('Failed to initialize audio context:', error);
+      // Continue without audio context - TTS might still work
+      this.isInitialized = true;
+    }
+  }
+
+  /**
+   * Speaks the given text in the specified language with mobile optimization
    * @param text - Text to be spoken
    * @param language - Language code ('ko' for Korean, 'en' for English)
    * @returns Promise that resolves when speech is complete or rejects on error
@@ -59,6 +86,9 @@ export class TTSServiceImpl implements TTSService {
       throw new TTSError('Speech synthesis is not supported in this browser', TTSErrorCode.NOT_SUPPORTED);
     }
 
+    // Initialize audio context for mobile compatibility
+    await this.initializeAudioContext();
+
     // Stop any currently playing speech
     this.stop();
 
@@ -67,52 +97,80 @@ export class TTSServiceImpl implements TTSService {
 
     return new Promise((resolve, reject) => {
       try {
-        const utterance = new SpeechSynthesisUtterance(cleanedText);
-        this.currentUtterance = utterance;
+        // Wait for voices to be loaded (important for mobile)
+        const speakWithVoices = () => {
+          const utterance = new SpeechSynthesisUtterance(cleanedText);
+          this.currentUtterance = utterance;
 
-        // Set language and voice
-        utterance.lang = language === 'ko' ? 'ko-KR' : 'en-US';
-        
-        // Try to find a suitable voice for the language
-        const voices = this.getVoices();
-        const preferredVoice = voices.find(voice => 
-          voice.lang.startsWith(language === 'ko' ? 'ko' : 'en')
-        );
-        
-        if (preferredVoice) {
-          utterance.voice = preferredVoice;
-        }
-
-        // Set speech parameters
-        utterance.rate = 0.9; // Slightly slower for better comprehension
-        utterance.pitch = 1.0;
-        utterance.volume = 1.0;
-
-        // Set up event handlers
-        utterance.onstart = () => {
-          this.isPlaying = true;
-        };
-
-        utterance.onend = () => {
-          this.isPlaying = false;
-          this.currentUtterance = null;
-          resolve();
-        };
-
-        utterance.onerror = (event) => {
-          this.isPlaying = false;
-          this.currentUtterance = null;
+          // Set language and voice
+          utterance.lang = language === 'ko' ? 'ko-KR' : 'en-US';
           
-          let errorCode = TTSErrorCode.SYNTHESIS_FAILED;
-          if (event.error === 'network') {
-            errorCode = 'NETWORK_ERROR' as any;
+          // Try to find a suitable voice for the language
+          const voices = this.getVoices();
+          const preferredVoice = voices.find(voice => 
+            voice.lang.startsWith(language === 'ko' ? 'ko' : 'en')
+          );
+          
+          if (preferredVoice) {
+            utterance.voice = preferredVoice;
           }
-          
-          reject(new TTSError(`Speech synthesis failed: ${event.error}`, errorCode));
+
+          // Set speech parameters optimized for mobile
+          utterance.rate = 0.8; // Slower for mobile comprehension
+          utterance.pitch = 1.0;
+          utterance.volume = 1.0;
+
+          // Set up event handlers
+          utterance.onstart = () => {
+            this.isPlaying = true;
+          };
+
+          utterance.onend = () => {
+            this.isPlaying = false;
+            this.currentUtterance = null;
+            resolve();
+          };
+
+          utterance.onerror = (event) => {
+            this.isPlaying = false;
+            this.currentUtterance = null;
+            
+            let errorCode = TTSErrorCode.SYNTHESIS_FAILED;
+            if (event.error === 'network') {
+              errorCode = 'NETWORK_ERROR' as any;
+            }
+            
+            reject(new TTSError(`Speech synthesis failed: ${event.error}`, errorCode));
+          };
+
+          // Mobile-specific: Add a small delay before speaking
+          setTimeout(() => {
+            try {
+              speechSynthesis.speak(utterance);
+            } catch (error) {
+              this.isPlaying = false;
+              this.currentUtterance = null;
+              reject(new TTSError(
+                `Failed to start speech synthesis: ${error instanceof Error ? error.message : 'Unknown error'}`,
+                TTSErrorCode.SYNTHESIS_FAILED
+              ));
+            }
+          }, 100);
         };
 
-        // Start speaking
-        speechSynthesis.speak(utterance);
+        // Check if voices are already loaded
+        const voices = this.getVoices();
+        if (voices.length > 0) {
+          speakWithVoices();
+        } else {
+          // Wait for voices to load (important for mobile browsers)
+          this.waitForVoices().then(() => {
+            speakWithVoices();
+          }).catch(() => {
+            // Fallback: try to speak without waiting for voices
+            speakWithVoices();
+          });
+        }
 
       } catch (error) {
         this.isPlaying = false;

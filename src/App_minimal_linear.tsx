@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { dataService } from './services/dataService';
 import { ttsService } from './services/ttsService';
+import MobileTTSActivator from './components/MobileTTSActivator';
 import type { Grade, Sentence } from './types';
 
 const App: React.FC = () => {
@@ -196,6 +197,7 @@ const App: React.FC = () => {
         background: 'var(--bg-primary)',
         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
       }}>
+        <MobileTTSActivator />
         {/* Header */}
         <header style={{
           position: 'fixed',
@@ -1449,6 +1451,8 @@ const App: React.FC = () => {
           </div>
         </div>
       )}
+      
+      <MobileTTSActivator />
     </div>
   );
 };
