@@ -19,12 +19,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/english-card-learning.git"
+    "url": "https://github.com/asderio/english-learning-cards.git"
   },
   "bugs": {
-    "url": "https://github.com/your-username/english-card-learning/issues"
+    "url": "https://github.com/asderio/english-learning-cards/issues"
   },
-  "homepage": "https://your-username.github.io/english-card-learning",
+  "homepage": "https://asderio.github.io/english-learning-cards",
   "license": "MIT",
   "scripts": {
     "dev": "vite",

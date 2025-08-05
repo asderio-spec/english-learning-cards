@@ -140,7 +140,7 @@ const middle2Sentences: Omit<Sentence, 'isImportant' | 'studyCount' | 'lastStudi
     { korean: '저는 일기를 쓰고 있습니다.', english: 'I am writing a diary.' },
     { korean: '그는 사진 찍는 것을 좋아합니다.', english: 'He likes taking photos.' }
   ];
-  
+
   const sentence = sentences[i % sentences.length];
   return {
     id: `m2_${String(i + 1).padStart(3, '0')}`,
@@ -183,7 +183,7 @@ const middle3Sentences: Omit<Sentence, 'isImportant' | 'studyCount' | 'lastStudi
     { korean: '저는 평생 학습의 중요성을 깨달았습니다.', english: 'I realized the importance of lifelong learning.' },
     { korean: '그는 혁신적인 아이디어를 가지고 있습니다.', english: 'He has innovative ideas.' }
   ];
-  
+
   const sentence = sentences[i % sentences.length];
   return {
     id: `m3_${String(i + 1).padStart(3, '0')}`,
@@ -226,7 +226,7 @@ const high1Sentences: Omit<Sentence, 'isImportant' | 'studyCount' | 'lastStudied
     { korean: '인내는 성공의 필수 요소입니다.', english: 'Patience is an essential element of success.' },
     { korean: '겸손은 지혜의 시작입니다.', english: 'Humility is the beginning of wisdom.' }
   ];
-  
+
   const sentence = sentences[i % sentences.length];
   return {
     id: `h1_${String(i + 1).padStart(3, '0')}`,
@@ -269,7 +269,7 @@ const high2Sentences: Omit<Sentence, 'isImportant' | 'studyCount' | 'lastStudied
     { korean: '머신러닝이 데이터 분석을 자동화하고 있습니다.', english: 'Machine learning is automating data analysis.' },
     { korean: '증강현실이 현실과 가상을 융합하고 있습니다.', english: 'Augmented reality is merging reality and virtual worlds.' }
   ];
-  
+
   const sentence = sentences[i % sentences.length];
   return {
     id: `h2_${String(i + 1).padStart(3, '0')}`,
@@ -302,7 +302,7 @@ const high3Sentences: Omit<Sentence, 'isImportant' | 'studyCount' | 'lastStudied
     { korean: '협력적 문제 해결 능력이 중요합니다.', english: 'Collaborative problem-solving skills are important.' },
     { korean: '의사소통 능력을 향상시켜야 합니다.', english: 'We must improve communication skills.' }
   ];
-  
+
   const sentence = sentences[i % sentences.length];
   return {
     id: `h3_${String(i + 1).padStart(3, '0')}`,
@@ -361,12 +361,12 @@ export function validateSentenceData(): boolean {
         console.error(`Invalid grade: ${grade}`);
         return false;
       }
-      
+
       if (!Array.isArray(sentences) || sentences.length !== 100) {
         console.error(`Grade ${grade} should have exactly 100 sentences, but has ${sentences.length}`);
         return false;
       }
-      
+
       for (const sentence of sentences) {
         const fullSentence = createSentence(sentence);
         if (!isSentence(fullSentence)) {
